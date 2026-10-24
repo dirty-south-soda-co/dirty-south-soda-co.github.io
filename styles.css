@@ -457,3 +457,7 @@ a.card{display:block}
 @media (prefers-reduced-motion:reduce){.bubble{display:none}}
 .bubble{background:radial-gradient(circle at 32% 30%,#fff 0 15%,rgba(255,255,255,.4) 17%,rgba(182,242,195,.75) 50%,rgba(255,92,177,.6) 100%);box-shadow:0 0 0 1.5px rgba(69,28,35,.5),inset -2px -3px 4px rgba(236,59,131,.35)}
 @media (max-width:950px){.page-hero .sun{opacity:.3}}
+/* Header logo = logo.png (kept proportional, never stretched) */
+.brand img{width:auto;height:76px;max-width:200px;object-fit:contain}
+@media (max-width:950px){.brand img{height:64px;max-width:170px}}
+@media (max-width:380px){.brand img{height:56px;max-width:140px}}

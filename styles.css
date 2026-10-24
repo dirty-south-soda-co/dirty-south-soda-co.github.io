@@ -461,3 +461,40 @@ a.card{display:block}
 .brand img{width:auto;height:76px;max-width:200px;object-fit:contain}
 @media (max-width:950px){.brand img{height:64px;max-width:170px}}
 @media (max-width:380px){.brand img{height:56px;max-width:140px}}
+
+/* ================= v4: ordering, socials, gift cards ================= */
+.topline a{color:var(--cream);text-decoration:underline;text-decoration-color:var(--pink-hot);text-underline-offset:3px}
+.topline a:hover{color:#fff}
+.order-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;max-width:980px;margin-inline:auto}
+.order-card{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:10px;background:#fff;border:4px solid var(--cola);border-radius:var(--radius);padding:32px;box-shadow:var(--shadow);transition:transform .18s,box-shadow .18s;overflow:hidden}
+.order-card::before{content:"";position:absolute;inset:0 0 auto 0;height:10px;background:linear-gradient(90deg,var(--pink-hot) 0 50%,var(--mint) 50%)}
+.order-card.delivery::before{background:linear-gradient(90deg,var(--mint) 0 50%,var(--pink-hot) 50%)}
+.order-card:hover{transform:translate(-3px,-3px);box-shadow:10px 10px 0 var(--cola)}
+.order-card h3{font-size:2rem}
+.order-card p{color:var(--muted);margin-bottom:10px}
+.order-card .btn{margin-top:auto}
+.order-icon{width:62px;height:62px;border-radius:50%;display:grid;place-items:center;background:var(--pink-soft);border:3px solid var(--cola);color:var(--cola)}
+.order-card.delivery .order-icon{background:var(--mint)}
+.order-icon svg{width:32px;height:32px}
+.order-tag{font-family:var(--display);letter-spacing:.16em;text-transform:uppercase;font-size:.85rem;color:var(--pink)}
+.socials{display:flex;gap:10px;flex-wrap:wrap}
+.socials a{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:var(--mint);color:var(--cola);border:2.5px solid var(--cola);transition:transform .15s,background .15s}
+.socials a:hover{transform:translateY(-3px) rotate(-6deg);background:var(--pink);color:#fff}
+.socials svg{width:22px;height:22px}
+.footer .socials a{border-color:var(--mint)}
+.big-socials{justify-content:center;margin-top:28px}
+.big-socials a{width:56px;height:56px}
+.big-socials svg{width:26px;height:26px}
+.steps.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.gift-card-art{display:flex;justify-content:center;padding:20px}
+.gcard{position:relative;width:min(440px,100%);aspect-ratio:1.586;border-radius:26px;background:linear-gradient(135deg,var(--cola) 0%,var(--cola-mid) 100%);border:4px solid var(--cola);box-shadow:12px 12px 0 var(--pink);overflow:hidden;transform:rotate(-4deg);display:flex;align-items:center;padding:22px;gap:14px;color:var(--cream)}
+.gcard .sun{width:300px;aspect-ratio:1;right:-110px;bottom:-140px;opacity:.9}
+.gcard img{position:relative;width:38%;height:auto;filter:drop-shadow(3px 4px 0 #0005)}
+.gcard-text{position:relative;display:flex;flex-direction:column;gap:4px}
+.gcard-text small{font-family:var(--display);letter-spacing:.2em;text-transform:uppercase;color:var(--mint);font-size:.8rem}
+.gcard-text strong{font-family:var(--script);font-weight:400;font-size:clamp(1.5rem,3.4vw,2.1rem);line-height:1.1;color:var(--pink-hot);text-shadow:2px 2px 0 #fff3}
+.gcard-text span{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700}
+.chip-gold{position:absolute;top:22px;right:26px;width:46px;height:34px;border-radius:7px;background:linear-gradient(135deg,#f6d77a,#c99a3a);border:2px solid var(--cola)}
+@media (max-width:1150px){.navigation>a:not(.btn){padding:8px 8px;font-size:.9rem;letter-spacing:.05em}}
+@media (max-width:950px){.order-grid,.steps.three{grid-template-columns:1fr}.gcard{transform:rotate(-2deg)}}
+@media (max-width:767px){.order-card{padding:26px 22px}.topline a{display:inline-block;margin-top:2px}}

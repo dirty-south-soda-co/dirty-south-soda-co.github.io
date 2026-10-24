@@ -183,7 +183,7 @@
     sync();
   }
 
-  // Optional section reveals. No JS means no hidden content.
+  // Section reveals. Without JS, nothing is hidden.
   if ('IntersectionObserver' in window && !motionQuery.matches) {
     const observer = new IntersectionObserver(entries => entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -191,11 +191,86 @@
         observer.unobserve(entry.target);
       }
     }), { threshold: 0.05 });
-    document.querySelectorAll('.welcome > div, .section-heading, .feature-copy, .find-layout > div, .event-copy, .about-layout > div').forEach(element => {
+    document.querySelectorAll('[data-reveal]').forEach(element => {
       if (element.getBoundingClientRect().top > innerHeight) {
         element.classList.add('reveal');
         observer.observe(element);
       }
+    });
+  }
+
+  // Contact page: build an inquiry message, copy it, then open Instagram to DM.
+  const form = document.querySelector('#inquiry-form');
+  if (form) {
+    const formStatus = document.querySelector('#form-status');
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      const d = new FormData(form);
+      const name = (d.get('name') || '').trim();
+      if (!name) {
+        formStatus.textContent = 'Please add your name first.';
+        form.querySelector('#f-name').focus();
+        return;
+      }
+      const lines = [
+        `Hi Dirty South Soda Co.! I'd like to ask about booking the truck.`,
+        `Name: ${name}`,
+        d.get('contact') && `Contact: ${d.get('contact')}`,
+        `Event type: ${d.get('type')}`,
+        d.get('date') && `Date: ${d.get('date')}`,
+        d.get('location') && `Location: ${d.get('location')}`,
+        d.get('guests') && `Guests: ${d.get('guests')}`,
+        d.get('message') && `Details: ${d.get('message')}`
+      ].filter(Boolean).join('\n');
+      let copied = false;
+      try { await navigator.clipboard.writeText(lines); copied = true; } catch (err) { copied = false; }
+      formStatus.textContent = copied
+        ? 'Message copied! Paste it into a DM on Instagram.'
+        : 'Copy this message and send it to us on Instagram:\n\n' + lines;
+      formStatus.style.whiteSpace = 'pre-line';
+      window.open('https://ig.me/m/dirtysouthsodacosc', '_blank', 'noopener');
+    });
+  }
+
+  // Soda bubbles on click/tap. Lightweight: capped count, removed after animating.
+  if (!motionQuery.matches) {
+    let live = 0;
+    const MAX = 40;
+    document.addEventListener('pointerdown', e => {
+      if (e.button > 0) return;
+      const count = Math.min(7 + Math.floor(Math.random() * 4), MAX - live);
+      for (let i = 0; i < count; i++) {
+        const b = document.createElement('span');
+        b.className = 'bubble';
+        const size = 6 + Math.random() * 16;
+        b.style.left = (e.clientX + (Math.random() - 0.5) * 18) + 'px';
+        b.style.top = (e.clientY + (Math.random() - 0.5) * 10) + 'px';
+        b.style.setProperty('--s', size.toFixed(1) + 'px');
+        b.style.setProperty('--dx', ((Math.random() - 0.5) * 70).toFixed(1) + 'px');
+        b.style.setProperty('--dy', (-(50 + Math.random() * 110)).toFixed(1) + 'px');
+        b.style.setProperty('--d', (650 + Math.random() * 650).toFixed(0) + 'ms');
+        b.style.animationDelay = (Math.random() * 90).toFixed(0) + 'ms';
+        b.setAttribute('aria-hidden', 'true');
+        live++;
+        b.addEventListener('animationend', () => { b.remove(); live--; }, { once: true });
+        document.body.appendChild(b);
+      }
+    }, { passive: true });
+  }
+
+  // Menu search filter.
+  const search = document.querySelector('#menu-search');
+  if (search) {
+    const empty = document.querySelector('#menu-empty');
+    const items = [...document.querySelectorAll('.item')];
+    items.forEach(it => { it.dataset.text = it.textContent.toLowerCase(); });
+    search.addEventListener('input', () => {
+      const q = search.value.trim().toLowerCase();
+      let shown = 0;
+      items.forEach(it => { const hit = !q || it.dataset.text.includes(q); it.hidden = !hit; if (hit) shown++; });
+      document.querySelectorAll('.menu-group').forEach(g => { g.hidden = !g.querySelector('.item:not([hidden])'); });
+      document.querySelectorAll('.menu-section').forEach(sec => { sec.hidden = !sec.querySelector('.item:not([hidden])'); });
+      empty.textContent = q ? (shown ? `${shown} match${shown === 1 ? '' : 'es'} for “${search.value.trim()}”` : `No matches for “${search.value.trim()}” — try another flavor.`) : '';
     });
   }
 })();

@@ -382,7 +382,7 @@ p+p{margin-top:14px}
 /* ================= v2 additions ================= */
 /* Soda-cup cursor (mouse/trackpad only). Hotspot = top-left of the foam. */
 @media (pointer:fine){
-  html,body{cursor:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2232%22%20height%3D%2240%22%20viewBox%3D%220%200%2032%2040%22%3E%3Cpath%20d%3D%22M20%2014%2027%202%22%20stroke%3D%22%23451c23%22%20stroke-width%3D%225%22%20stroke-linecap%3D%22round%22/%3E%3Cpath%20d%3D%22M20%2014%2027%202%22%20stroke%3D%22%235aa9a0%22%20stroke-width%3D%222.6%22%20stroke-linecap%3D%22round%22/%3E%3Cpath%20d%3D%22M5%2014h20l-2.6%2022.5a2%202%200%200%201-2%201.5H9.6a2%202%200%200%201-2-1.5z%22%20fill%3D%22%236b2e33%22%20stroke%3D%22%23451c23%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22round%22/%3E%3Cpath%20d%3D%22M7.2%2024h15.6%22%20stroke%3D%22%23ff5cb1%22%20stroke-width%3D%222.4%22/%3E%3Cpath%20d%3D%22M7.7%2028h14.6%22%20stroke%3D%22%23b6f2c3%22%20stroke-width%3D%222%22/%3E%3Cpath%20d%3D%22M3.5%2014c0-4%203.4-6%206-5%201.2-3.6%207.6-3.6%209%200%203-1%207.5.6%207.5%205z%22%20fill%3D%22%23fff8ef%22%20stroke%3D%22%23451c23%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E") 4 6,auto}
+  html,body{cursor:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2232%22%20height%3D%2240%22%20viewBox%3D%220%200%2032%2040%22%3E%3Cpath%20d%3D%22M20%2014%2027%202%22%20stroke%3D%22%23451c23%22%20stroke-width%3D%225%22%20stroke-linecap%3D%22round%22/%3E%3Cpath%20d%3D%22M20%2014%2027%202%22%20stroke%3D%22%235aa9a0%22%20stroke-width%3D%222.6%22%20stroke-linecap%3D%22round%22/%3E%3Cpath%20d%3D%22M5%2014h20l-2.6%2022.5a2%202%200%200%201-2%201.5H9.6a2%202%200%200%201-2-1.5z%22%20fill%3D%22%23ec3b83%22%20stroke%3D%22%23451c23%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22round%22/%3E%3Cpath%20d%3D%22M7.2%2024h15.6%22%20stroke%3D%22%23ff5cb1%22%20stroke-width%3D%222.4%22/%3E%3Cpath%20d%3D%22M7.7%2028h14.6%22%20stroke%3D%22%23b6f2c3%22%20stroke-width%3D%222%22/%3E%3Cpath%20d%3D%22M3.5%2014c0-4%203.4-6%206-5%201.2-3.6%207.6-3.6%209%200%203-1%207.5.6%207.5%205z%22%20fill%3D%22%23fff8ef%22%20stroke%3D%22%23451c23%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E") 4 6,auto}
   a,button,summary,label[for],select,.chip,[role=button]{cursor:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2232%22%20height%3D%2240%22%20viewBox%3D%220%200%2032%2040%22%3E%3Cpath%20d%3D%22M20%2014%2027%202%22%20stroke%3D%22%23451c23%22%20stroke-width%3D%225%22%20stroke-linecap%3D%22round%22/%3E%3Cpath%20d%3D%22M20%2014%2027%202%22%20stroke%3D%22%235aa9a0%22%20stroke-width%3D%222.6%22%20stroke-linecap%3D%22round%22/%3E%3Cpath%20d%3D%22M5%2014h20l-2.6%2022.5a2%202%200%200%201-2%201.5H9.6a2%202%200%200%201-2-1.5z%22%20fill%3D%22%23ec3b83%22%20stroke%3D%22%23451c23%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22round%22/%3E%3Cpath%20d%3D%22M7.2%2024h15.6%22%20stroke%3D%22%23ff5cb1%22%20stroke-width%3D%222.4%22/%3E%3Cpath%20d%3D%22M7.7%2028h14.6%22%20stroke%3D%22%23b6f2c3%22%20stroke-width%3D%222%22/%3E%3Cpath%20d%3D%22M3.5%2014c0-4%203.4-6%206-5%201.2-3.6%207.6-3.6%209%200%203-1%207.5.6%207.5%205z%22%20fill%3D%22%23fff8ef%22%20stroke%3D%22%23451c23%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E") 4 6,pointer}
   input:not([type=date]):not([type=number]),textarea{cursor:text}
 }
@@ -498,3 +498,14 @@ a.card{display:block}
 @media (max-width:1150px){.navigation>a:not(.btn){padding:8px 8px;font-size:.9rem;letter-spacing:.05em}}
 @media (max-width:950px){.order-grid,.steps.three{grid-template-columns:1fr}.gcard{transform:rotate(-2deg)}}
 @media (max-width:767px){.order-card{padding:26px 22px}.topline a{display:inline-block;margin-top:2px}}
+
+/* v6: floating mobile button removed */
+.mobile-find{display:none !important}
+@media (max-width:767px){.footer{padding-bottom:28px}}
+/* Gift card photo (ds gift card.png) */
+.gift-card-art{position:relative;padding:40px 20px}
+.gift-card-art .sun{width:min(420px,90%);aspect-ratio:1;left:50%;top:50%;transform:translate(-50%,-50%)}
+.gift-photo{position:relative;z-index:1;display:block;width:min(460px,100%);border-radius:24px;border:4px solid var(--cola);box-shadow:12px 12px 0 var(--pink);overflow:hidden;transform:rotate(-4deg);transition:transform .2s,box-shadow .2s}
+.gift-photo:hover{transform:rotate(-1deg) translateY(-4px);box-shadow:16px 16px 0 var(--pink)}
+.gift-photo img{width:100%;height:auto;aspect-ratio:1.6;object-fit:cover}
+@media (max-width:950px){.gift-photo{transform:rotate(-2deg)}}
